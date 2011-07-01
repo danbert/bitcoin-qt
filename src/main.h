@@ -917,7 +917,8 @@ public:
         fflush(fileout);
         if (!IsInitialBlockDownload() || (nBestHeight+1) % 500 == 0)
         {
-#ifdef __WXMSW__
+//#ifdef WIN_BUILD
+#if 1
             _commit(_fileno(fileout));
 #else
             fsync(fileno(fileout));

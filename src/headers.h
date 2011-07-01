@@ -26,6 +26,9 @@
 #define BSD 1
 #endif
 #endif
+#if defined(WIN32) || defined(WIN64)
+#define WIN_BUILD 1
+#endif
 #ifdef GUI
 #include <wx/wx.h>
 #include <wx/stdpaths.h>
@@ -58,12 +61,10 @@
 
 #include <boost/foreach.hpp>
 
-#ifdef __WXMSW__
+#ifdef WIN_BUILD
 #include <windows.h>
 #include <winsock2.h>
 #include <mswsock.h>
-#include <shlobj.h>
-#include <shlwapi.h>
 #include <io.h>
 #include <process.h>
 #include <malloc.h>

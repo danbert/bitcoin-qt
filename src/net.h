@@ -9,7 +9,8 @@
 #include <boost/foreach.hpp>
 #include <openssl/rand.h>
 
-#ifndef __WXMSW__
+// #ifndef WIN_BUILD
+#if 0
 #include <arpa/inet.h>
 #endif
 

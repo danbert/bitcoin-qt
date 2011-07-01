@@ -6,7 +6,8 @@
 
 #include "uint256.h"
 
-#ifndef __WXMSW__
+// #ifndef WIN_BUILD
+#if 0
 #include <sys/types.h>
 #include <sys/time.h>
 #include <sys/resource.h>
@@ -88,7 +89,8 @@ T* alignup(T* p)
     return u.ptr;
 }
 
-#ifdef __WXMSW__
+//#ifdef WIN_BUILD
+#if 1
 #define MSG_NOSIGNAL        0
 #define MSG_DONTWAIT        0
 #ifndef UINT64_MAX
@@ -130,7 +132,8 @@ inline int myclosesocket(SOCKET& hSocket)
 {
     if (hSocket == INVALID_SOCKET)
         return WSAENOTSOCK;
-#ifdef __WXMSW__
+//#ifdef __WXMSW__
+#if 1
     int ret = closesocket(hSocket);
 #else
     int ret = close(hSocket);
@@ -579,7 +582,8 @@ inline uint160 Hash160(const std::vector<unsigned char>& vch)
 
 // Note: It turns out we might have been able to use boost::thread
 // by using TerminateThread(boost::thread.native_handle(), 0);
-#ifdef __WXMSW__
+//#ifdef WIN_BUILD
+#if 1
 typedef HANDLE pthread_t;
 
 inline pthread_t CreateThread(void(*pfn)(void*), void* parg, bool fWantHandle=false)

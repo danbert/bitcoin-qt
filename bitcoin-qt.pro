@@ -13,6 +13,7 @@ macx:LIBS += -lboost_thread-mt
 QMAKE_CXXFLAGS_WARN_ON = -fdiagnostics-show-option -Wall -Wno-invalid-offsetof -Wno-unused-variable -Wno-unused-parameter -Wno-sign-compare -Wno-char-subscripts  -Wno-unused-value -Wno-sequence-point -Wno-parentheses -Wno-unknown-pragmas -Wno-switch
 
 # TODO: WINDOWS defines, -DSSL
+win32:INCLUDEPATH += "c:\bdb_4.8.30\include"
 
 # Input
 DEPENDPATH += src/qt src src/cryptopp src json/include
